@@ -1,8 +1,10 @@
 import requests
 from typing import Optional, List, Dict, Any
 from langchain_core.tools import tool
+from ._cooldown_decorator import await_cooldown
 
 @tool
+@await_cooldown
 def action_recycling_my__name__action_recycling_post(name: str, code: str, quantity: Optional[int] = None, enhanced: Optional[bool] = None, token: str = ''):
     """Recycling an item. The character must be on a map with a workshop (only for equipments and weapons).
     

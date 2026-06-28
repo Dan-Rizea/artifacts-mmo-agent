@@ -1,8 +1,10 @@
 import requests
 from typing import Optional, List, Dict, Any
 from langchain_core.tools import tool
+from ._cooldown_decorator import await_cooldown
 
 @tool
+@await_cooldown
 def action_claim_pending_item_my__name__action_claim_item__id__post(name: str, id: str, token: str = ''):
     """Claim a pending item with a specific character.
     

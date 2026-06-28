@@ -1,8 +1,10 @@
 import requests
 from typing import Optional, List, Dict, Any
 from langchain_core.tools import tool
+from ._cooldown_decorator import await_cooldown
 
 @tool
+@await_cooldown
 def action_ge_create_sell_order_my__name__action_grandexchange_create_sell_order_post(name: str, code: str, quantity: int, price: int, token: str = ''):
     """Create a sell order at the Grand Exchange on the character's map.
     

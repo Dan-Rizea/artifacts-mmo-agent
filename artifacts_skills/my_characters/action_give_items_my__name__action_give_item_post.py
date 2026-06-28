@@ -1,8 +1,10 @@
 import requests
 from typing import Optional, List, Dict, Any
 from langchain_core.tools import tool
+from ._cooldown_decorator import await_cooldown
 
 @tool
+@await_cooldown
 def action_give_items_my__name__action_give_item_post(name: str, items: List[Dict[str, Any]], character: str, token: str = ''):
     """Give items to another character in your account on the same map. The cooldown will be 3 seconds multiplied by the number of different items given.
     

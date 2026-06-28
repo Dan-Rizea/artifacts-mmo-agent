@@ -1,8 +1,10 @@
 import requests
 from typing import Optional, List, Dict, Any
 from langchain_core.tools import tool
+from ._cooldown_decorator import await_cooldown
 
 @tool
+@await_cooldown
 def action_deposit_bank_item_my__name__action_bank_deposit_item_post(name: str, items: List[Dict[str, Any]], token: str = ''):
     """Deposit multiple items in a bank on the character's map. The cooldown will be 3 seconds multiplied by the number of different items deposited.
     

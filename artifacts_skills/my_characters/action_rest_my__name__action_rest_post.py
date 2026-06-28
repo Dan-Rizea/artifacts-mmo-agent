@@ -1,8 +1,10 @@
 import requests
 from typing import Optional, List, Dict, Any
 from langchain_core.tools import tool
+from ._cooldown_decorator import await_cooldown
 
 @tool
+@await_cooldown
 def action_rest_my__name__action_rest_post(name: str, token: str = ''):
     """Recovers hit points by resting. (1 second per 5 HP, minimum 3 seconds)
     

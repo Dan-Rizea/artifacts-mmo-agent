@@ -1,8 +1,10 @@
 import requests
 from typing import Optional, List, Dict, Any
 from langchain_core.tools import tool
+from ._cooldown_decorator import await_cooldown
 
 @tool
+@await_cooldown
 def action_equip_item_my__name__action_equip_post(name: str, items: List[Dict[str, Any]], token: str = ''):
     """Equip multiple items on your character. The cooldown will be 3 seconds multiplied by the number of different items equipped.
     

@@ -1,8 +1,10 @@
 import requests
 from typing import Optional, List, Dict, Any
 from langchain_core.tools import tool
+from ._cooldown_decorator import await_cooldown
 
 @tool
+@await_cooldown
 def action_npc_buy_item_my__name__action_npc_buy_post(name: str, code: str, quantity: int, token: str = ''):
     """Buy an item from an NPC on the character's map.
     

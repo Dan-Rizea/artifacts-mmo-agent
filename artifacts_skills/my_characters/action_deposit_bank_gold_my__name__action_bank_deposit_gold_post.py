@@ -1,8 +1,10 @@
 import requests
 from typing import Optional, List, Dict, Any
 from langchain_core.tools import tool
+from ._cooldown_decorator import await_cooldown
 
 @tool
+@await_cooldown
 def action_deposit_bank_gold_my__name__action_bank_deposit_gold_post(name: str, quantity: int, token: str = ''):
     """Deposit gold in a bank on the character's map.
     

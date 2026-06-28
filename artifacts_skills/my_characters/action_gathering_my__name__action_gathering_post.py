@@ -1,8 +1,10 @@
 import requests
 from typing import Optional, List, Dict, Any
 from langchain_core.tools import tool
+from ._cooldown_decorator import await_cooldown
 
 @tool
+@await_cooldown
 def action_gathering_my__name__action_gathering_post(name: str, token: str = ''):
     """Harvest a resource on the character's map.
     

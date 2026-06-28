@@ -1,8 +1,10 @@
 import requests
 from typing import Optional, List, Dict, Any
 from langchain_core.tools import tool
+from ._cooldown_decorator import await_cooldown
 
 @tool
+@await_cooldown
 def action_crafting_my__name__action_crafting_post(name: str, code: str, quantity: Optional[int] = None, token: str = ''):
     """Craft an item. The character must be on a map with a workshop.
     

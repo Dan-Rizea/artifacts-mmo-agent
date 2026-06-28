@@ -2,6 +2,7 @@ import os
 import argparse
 from langchain.agents import create_agent
 from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain.globals import set_debug
 from toolkits import (
     get_character_tools,
     get_account_tools,
@@ -21,6 +22,7 @@ def create_llm(model: str) -> ChatGoogleGenerativeAI:
 
 
 def main():
+    set_debug(True)
     parser = argparse.ArgumentParser(description="Play Artifacts MMO with a LangChain Agent")
     parser.add_argument(
         "--toolkit", 

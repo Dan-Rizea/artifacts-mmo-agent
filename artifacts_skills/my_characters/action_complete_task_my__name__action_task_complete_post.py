@@ -1,8 +1,10 @@
 import requests
 from typing import Optional, List, Dict, Any
 from langchain_core.tools import tool
+from ._cooldown_decorator import await_cooldown
 
 @tool
+@await_cooldown
 def action_complete_task_my__name__action_task_complete_post(name: str, token: str = ''):
     """Complete a task.
     

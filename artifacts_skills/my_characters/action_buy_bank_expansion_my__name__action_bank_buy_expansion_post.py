@@ -1,8 +1,10 @@
 import requests
 from typing import Optional, List, Dict, Any
 from langchain_core.tools import tool
+from ._cooldown_decorator import await_cooldown
 
 @tool
+@await_cooldown
 def action_buy_bank_expansion_my__name__action_bank_buy_expansion_post(name: str, token: str = ''):
     """Buy a 20 slots bank expansion.
     

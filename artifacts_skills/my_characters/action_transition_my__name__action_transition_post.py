@@ -1,8 +1,10 @@
 import requests
 from typing import Optional, List, Dict, Any
 from langchain_core.tools import tool
+from ._cooldown_decorator import await_cooldown
 
 @tool
+@await_cooldown
 def action_transition_my__name__action_transition_post(name: str, token: str = ''):
     """Execute a transition from the current map to another layer. The character must be on a map that has a transition available.
     

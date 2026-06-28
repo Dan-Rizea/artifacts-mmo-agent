@@ -1,8 +1,10 @@
 import requests
 from typing import Optional, List, Dict, Any
 from langchain_core.tools import tool
+from ._cooldown_decorator import await_cooldown
 
 @tool
+@await_cooldown
 def action_give_gold_my__name__action_give_gold_post(name: str, quantity: int, character: str, token: str = ''):
     """Give gold to another character in your account on the same map.
     

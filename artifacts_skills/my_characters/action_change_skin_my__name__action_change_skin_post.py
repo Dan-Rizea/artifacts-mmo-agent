@@ -1,8 +1,10 @@
 import requests
 from typing import Optional, List, Dict, Any
 from langchain_core.tools import tool
+from ._cooldown_decorator import await_cooldown
 
 @tool
+@await_cooldown
 def action_change_skin_my__name__action_change_skin_post(name: str, skin: str, token: str = ''):
     """Change the skin of your character.
     

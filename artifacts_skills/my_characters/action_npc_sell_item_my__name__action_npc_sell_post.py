@@ -1,8 +1,10 @@
 import requests
 from typing import Optional, List, Dict, Any
 from langchain_core.tools import tool
+from ._cooldown_decorator import await_cooldown
 
 @tool
+@await_cooldown
 def action_npc_sell_item_my__name__action_npc_sell_post(name: str, code: str, quantity: int, token: str = ''):
     """Sell an item to an NPC on the character's map.
     

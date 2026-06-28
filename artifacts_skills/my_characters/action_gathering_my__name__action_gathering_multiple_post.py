@@ -3,8 +3,10 @@ import time
 import requests
 from typing import Optional, List, Dict, Any
 from langchain_core.tools import tool
+from ._cooldown_decorator import await_cooldown
 
 @tool
+@await_cooldown
 def action_gathering_my__name__action_gathering_multiple_post(name: str, quantity: int, token: str = ''):
     """Harvest a resource on the character's map multiple times.
     

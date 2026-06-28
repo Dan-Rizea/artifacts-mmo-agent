@@ -1,8 +1,10 @@
 import requests
 from typing import Optional, List, Dict, Any
 from langchain_core.tools import tool
+from ._cooldown_decorator import await_cooldown
 
 @tool
+@await_cooldown
 def action_fight_my__name__action_fight_post(name: str, participants: Optional[List[str]] = None, token: str = ''):
     """Start a fight against a monster on the character's map. Add participants for multi-character fights (up to 3 characters, only for boss).
     

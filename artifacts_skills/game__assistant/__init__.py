@@ -1,0 +1,3 @@
+from .ask_game_assistant_game_assistant_ask_post import ask_game_assistant_game_assistant_ask_post
+
+__all__ = ["ask_game_assistant_game_assistant_ask_post"]

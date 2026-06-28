@@ -1,0 +1,3 @@
+from .fight_simulation_simulation_fight_post import fight_simulation_simulation_fight_post
+
+__all__ = ["fight_simulation_simulation_fight_post"]

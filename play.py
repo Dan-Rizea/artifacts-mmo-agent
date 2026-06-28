@@ -2,7 +2,8 @@ import os
 import argparse
 from langchain.agents import create_agent
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain.globals import set_debug
+from langchain_core.globals import set_debug
+
 from toolkits import (
     get_character_tools,
     get_account_tools,

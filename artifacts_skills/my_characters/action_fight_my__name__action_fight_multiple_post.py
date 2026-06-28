@@ -16,10 +16,14 @@ def action_fight_my__name__action_fight_multiple_post(name: str, monster_count: 
     """
 
     for _ in range(monster_count):
-        raw_fight_function = action_fight_my__name__action_fight_post.func.__wrapped__
-        raw_rest_function = action_rest_my__name__action_rest_post.func.__wrapped__
-        
-        raw_fight_function(name, participants, token)
-        raw_rest_function(name, token)
+        action_fight_my__name__action_fight_post.invoke({
+            "name": name,
+            "participants": participants,
+            "token": token,
+        })
+        action_rest_my__name__action_rest_post.invoke({
+            "name": name,
+            "token": token,
+        })
 
     return f"Fought {monster_count} monsters!"
